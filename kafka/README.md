@@ -1,9 +1,9 @@
 # Setup Kafka by Docker
 We will use **Apache Kafka packaged by Bitnami**, so for more information: [bitnami/kafka docs](https://hub.docker.com/r/bitnami/kafka)
 ### Services
-- ZooKeeper: tracking status of the Kafka cluster
-- Kafka: a message broker for microservice system
-- KafkaUI: a frontend web for Kafka
+- **ZooKeeper**: tracking status of the Kafka cluster
+- **Kafka**: a message broker for microservice system
+- **KafkaUI**: a frontend web for Kafka
 ### How to run
 To connect your app from outside of these containers, you need to replace the *external ip address* in `KAFKA_CFG_ADVERTISED_LISTENERS` variable. And run:
 ```bash
