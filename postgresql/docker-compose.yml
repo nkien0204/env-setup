@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  myapp-postgresql:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_MULTIPLE_DATABASES=horizon_db
+      - POSTGRES_USER=horizon
+      - POSTGRES_PASSWORD=horizon
+    ports:
+      - "5432:5432"
