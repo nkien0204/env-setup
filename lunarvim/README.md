@@ -1,4 +1,4 @@
-** Some command for debugging
+## Some command for debugging
 
 ```bash
 :lua require('dap-go').setup()
