@@ -64,6 +64,7 @@ lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.dap.active = true
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -166,6 +167,7 @@ lvim.plugins = {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
+  { "leoluz/nvim-dap-go" },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
@@ -186,3 +188,4 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.showtabline = 4
 vim.opt.relativenumber = true
+vim.keymap.set("n", "<F5>", ":lua require'dap'.continue")
