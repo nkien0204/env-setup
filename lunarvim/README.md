@@ -12,5 +12,5 @@ sudo apt-get -y install delve
 - [nvim-dap-go](https://github.com/leoluz/nvim-dap-go)
 - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 
-All of these plugins already setup in [config.lua](./config.lua)
-See [lunar quickstart](https://www.lunarvim.org/docs/quick-start) for more information
+All of these plugins already setup in [config.lua](./config.lua).
+See [lunar quickstart](https://www.lunarvim.org/docs/quick-start) for more information.
