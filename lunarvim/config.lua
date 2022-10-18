@@ -66,6 +66,52 @@ lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.dap.active = true
 
+-- local dap = require "dap"
+-- dap.adapters.go = {
+--   type = 'executable';
+--   command = 'node';
+--   args = { '/home/kn/.local/share/lunarvim/site/pack/packer/start/nvim-dap'  }; -- specify the path to the adapter
+-- }
+-- dap.configurations.go = {
+--   {
+--      type = "go",
+--      name = "Attach",
+--      request = "attach",
+--      processId = require("dap.utils").pick_process,
+--      program = "${workspaceFolder}",
+--      dlvToolPath = vim.fn.exepath('dlv')
+--   },
+--   {
+--      type = "go",
+--      name = "Debug curr file",
+--      request = "launch",
+--      program = "${file}",
+--      dlvToolPath = vim.fn.exepath('dlv')
+--   },
+--   {
+--      type = "go",
+--      name = "Debug",
+--      request = "launch",
+--      program = "../../projects/lets-go/",
+--      dlvToolPath = vim.fn.exepath('dlv')
+--   },
+--   {
+--      type = "go",
+--      name = "Debug curr test",
+--      request = "launch",
+--      mode = "test",
+--      program = "${file}",
+--      dlvToolPath = vim.fn.exepath('dlv')
+--   },
+--   {
+--      type = "go",
+--      name = "Debug test",
+--      request = "launch",
+--      mode = "test",
+--      program = "${workspaceFolder}",
+--      dlvToolPath = vim.fn.exepath('dlv')
+--   },
+-- }
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
@@ -168,6 +214,7 @@ lvim.plugins = {
     cmd = "TroubleToggle",
   },
   { "leoluz/nvim-dap-go" },
+  { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
@@ -189,5 +236,6 @@ vim.opt.tabstop = 4
 vim.opt.showtabline = 4
 vim.opt.relativenumber = true
 vim.keymap.set("n", "<F4>", ":lua require('dap-go').setup()")
-vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()")
-vim.keymap.set("n", "<F6>", ":lua require'dap'.toggle_breakpoint()")
+vim.keymap.set("n", "<F5>", ":lua require('dapui').setup()")
+vim.keymap.set("n", "<F6>", ":lua require('dapui').open()")
+vim.keymap.set("n", "<F7>", ":lua require('dapui').close()")
