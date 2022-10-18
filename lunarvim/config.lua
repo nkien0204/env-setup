@@ -188,4 +188,6 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.showtabline = 4
 vim.opt.relativenumber = true
-vim.keymap.set("n", "<F5>", ":lua require'dap'.continue")
+vim.keymap.set("n", "<F4>", ":lua require('dap-go').setup()")
+vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()")
+vim.keymap.set("n", "<F6>", ":lua require'dap'.toggle_breakpoint()")
