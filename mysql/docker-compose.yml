@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      MYSQL_ROOT_PASSWORD: 'test_pass' # TODO: Change this
+      MYSQL_ROOT_PASSWORD: 'test_pass' # password for 'root' user, TODO: Change this
     volumes:
       - my-datavolume:/var/lib/mysql
     ports:
