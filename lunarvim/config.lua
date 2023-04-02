@@ -10,10 +10,10 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = false
+lvim.format_on_save.enabled = true
 lvim.colorscheme = "tokyonight"
 -- to disable icons and use a minimalist setup, uncomment the following
-lvim.use_icons = true
+-- lvim.use_icons = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -44,98 +44,57 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   },
 -- }
 
+-- Change theme settings
+-- lvim.builtin.theme.options.dim_inactive = true
+-- lvim.builtin.theme.options.style = "storm"
+
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
-lvim.builtin.which_key.mappings["t"] = {
-  name = "+Trouble",
-  r = { "<cmd>Trouble lsp_references<cr>", "References" },
-  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
-  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
-}
+-- lvim.builtin.which_key.mappings["t"] = {
+--   name = "+Trouble",
+--   r = { "<cmd>Trouble lsp_references<cr>", "References" },
+--   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+--   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+--   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+--   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+--   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
+-- }
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
-lvim.builtin.dap.active = true
 
--- local dap = require "dap"
--- dap.adapters.go = {
---   type = 'executable';
---   command = 'node';
---   args = { '/home/kn/.local/share/lunarvim/site/pack/packer/start/nvim-dap'  }; -- specify the path to the adapter
--- }
--- dap.configurations.go = {
---   {
---      type = "go",
---      name = "Attach",
---      request = "attach",
---      processId = require("dap.utils").pick_process,
---      program = "${workspaceFolder}",
---      dlvToolPath = vim.fn.exepath('dlv')
---   },
---   {
---      type = "go",
---      name = "Debug curr file",
---      request = "launch",
---      program = "${file}",
---      dlvToolPath = vim.fn.exepath('dlv')
---   },
---   {
---      type = "go",
---      name = "Debug",
---      request = "launch",
---      program = "../../projects/lets-go/",
---      dlvToolPath = vim.fn.exepath('dlv')
---   },
---   {
---      type = "go",
---      name = "Debug curr test",
---      request = "launch",
---      mode = "test",
---      program = "${file}",
---      dlvToolPath = vim.fn.exepath('dlv')
---   },
---   {
---      type = "go",
---      name = "Debug test",
---      request = "launch",
---      mode = "test",
---      program = "${workspaceFolder}",
---      dlvToolPath = vim.fn.exepath('dlv')
---   },
--- }
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
-  "bash",
-  "c",
-  "javascript",
-  "json",
-  "lua",
-  "python",
-  "typescript",
-  "tsx",
-  "css",
-  "rust",
-  "java",
-  "yaml",
+    "bash",
+    "c",
+    "javascript",
+    "json",
+    "lua",
+    "python",
+    "typescript",
+    "tsx",
+    "css",
+    "rust",
+    "java",
+    "yaml",
+    "go",
 }
 
+lvim.builtin.treesitter.auto_install = true
 lvim.builtin.treesitter.ignore_install = { "haskell" }
-lvim.builtin.treesitter.highlight.enabled = true
+lvim.builtin.treesitter.highlight.enable = true
+lvim.builtin.treesitter.highlight.additional_vim_regex_highlighting = false
 
 -- generic LSP settings
 
 -- -- make sure server will always be installed even if the server is in skipped_servers list
 -- lvim.lsp.installer.setup.ensure_installed = {
---     "sumeko_lua",
+--     "sumneko_lua",
 --     "jsonls",
 -- }
 -- -- change UI setting of `LspInstallInfo`
@@ -200,7 +159,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 --     extra_args = { "--severity", "warning" },
 --   },
 --   {
---     command = "codespell",
+--     command = "codessheerun/vim-polyglotpell",
 --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
 --     filetypes = { "javascript", "python" },
 --   },
@@ -208,34 +167,153 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- Additional Plugins
 lvim.plugins = {
-  { "folke/tokyonight.nvim" },
-  {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-  },
-  { "leoluz/nvim-dap-go" },
-  { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} },
+    --  {
+    --    "folke/trouble.nvim",
+    --    cmd = "TroubleToggle",
+    --  },
+    { "fatih/vim-go" },
+    { "leoluz/nvim-dap-go" },
+    { "simrat39/rust-tools.nvim" },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = { "*.json", "*.jsonc" },
-  -- enable wrap mode for json files only
-  command = "setlocal wrap",
-})
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   pattern = { "*.json", "*.jsonc" },
+--   -- enable wrap mode for json files only
+--   command = "setlocal wrap",
+-- })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "zsh",
-  callback = function()
-    -- let treesitter use bash highlight for zsh files as well
-    require("nvim-treesitter.highlight").attach(0, "bash")
-  end,
+    pattern = "zsh",
+    callback = function()
+        --let treesitter use bash highlight for zsh files as well
+        require("nvim-treesitter.highlight").attach(0, "bash")
+    end
 })
 
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.showtabline = 4
-vim.opt.relativenumber = true
-vim.keymap.set("n", "<F4>", ":lua require('dap-go').setup()")
-vim.keymap.set("n", "<F5>", ":lua require('dapui').setup()")
-vim.keymap.set("n", "<F6>", ":lua require('dapui').open()")
-vim.keymap.set("n", "<F7>", ":lua require('dapui').close()")
+--
+vim.opt.backup = false                     -- creates a backup file
+vim.opt.clipboard = "unnamedplus"          -- allows neovim to access the system clipboard
+vim.opt.cmdheight = 2                      -- more space in the neovim command line for displaying messages
+vim.opt.colorcolumn = "99999"              -- fixes indentline for now
+vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.conceallevel = 0                   -- so that `` is visible in markdown files
+vim.opt.fileencoding = "utf-8"             -- the encoding written to a file
+vim.opt.foldmethod = "manual"              -- folding set to "expr" for treesitter based folding
+vim.opt.foldexpr = ""                      -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
+vim.opt.guifont = "monospace:h17"          -- the font used in graphical neovim applications
+vim.opt.hidden = true                      -- required to keep multiple buffers and open multiple buffers
+vim.opt.hlsearch = true                    -- highlight all matches on previous search pattern
+vim.opt.ignorecase = true                  -- ignore case in search patterns
+vim.opt.mouse = "a"                        -- allow the mouse to be used in neovim
+vim.opt.pumheight = 10                     -- pop up menu height
+vim.opt.showmode = false                   -- we don't need to see things like -- INSERT -- anymore
+vim.opt.showtabline = 2                    -- always show tabs
+vim.opt.smartcase = true                   -- smart case
+vim.opt.smartindent = true                 -- make indenting smarter again
+vim.opt.splitbelow = true                  -- force all horizontal splits to go below current window
+vim.opt.splitright = true                  -- force all vertical splits to go to the right of current window
+vim.opt.swapfile = false                   -- creates a swapfile
+vim.opt.termguicolors = true               -- set term gui colors (most terminals support this)
+vim.opt.timeoutlen = 100                   -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.opt.title = true                       -- set the title of window to the value of the titlestring
+vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
+vim.opt.undodir = vim.fn.stdpath "cache" .. "/undo"
+vim.opt.undofile = true                    -- enable persistent undo
+vim.opt.updatetime = 300                   -- faster completion
+vim.opt.writebackup = false                -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
+vim.opt.expandtab = true                   -- convert tabs to spaces
+vim.opt.shiftwidth = 4                     -- the number of spaces inserted for each indentation
+vim.opt.tabstop = 4                        -- insert 2 spaces for a tab
+vim.opt.cursorline = true                  -- highlight the current line
+vim.opt.number = true                      -- set numbered lines
+vim.opt.relativenumber = true              -- set relative numbered lines
+vim.opt.numberwidth = 4                    -- set number column width to 2 {default 4}
+vim.opt.signcolumn = "yes"                 -- always show the sign column otherwise it would shift the text each time
+vim.opt.wrap = false                       -- display lines as one long line
+vim.opt.spell = false
+vim.opt.spelllang = "en"
+vim.opt.scrolloff = 8 -- is one of my fav
+vim.opt.sidescrolloff = 8
+
+vim.keymap.set("n", "<F3>", ":lua require('dap-go').setup()")
+vim.keymap.set("n", "<F4>", ":lua require('dap').toggle_breakpoint()")
+vim.keymap.set("n", "<F5>", ":lua require('dap').continue()")
+vim.keymap.set("n", "<F10>", ":lua require('dap').step_over()")
+
+local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.9.0/'
+local codelldb_path = extension_path .. 'adapter/codelldb'
+local liblldb_path = extension_path .. 'lldb/lib/liblldb.dylib'
+local codelldb_adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path)
+
+pcall(function()
+    require("rust-tools").setup {
+        tools = {
+            executor = require("rust-tools/executors").termopen, -- can be quickfix or termopen
+            reload_workspace_from_cargo_toml = true,
+            runnables = {
+                use_telescope = true,
+            },
+            inlay_hints = {
+                auto = true,
+                only_current_line = false,
+                show_parameter_hints = false,
+                parameter_hints_prefix = "<-",
+                other_hints_prefix = "=>",
+                max_len_align = false,
+                max_len_align_padding = 1,
+                right_align = false,
+                right_align_padding = 7,
+                highlight = "Comment",
+            },
+            hover_actions = {
+                border = "rounded",
+            },
+            on_initialized = function()
+                vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
+                    pattern = { "*.rs" },
+                    callback = function()
+                        local _, _ = pcall(vim.lsp.codelens.refresh)
+                    end,
+                })
+            end,
+        },
+        dap = {
+            adapter = codelldb_adapter,
+        },
+        server = {
+            on_attach = function(client, bufnr)
+                require("lvim.lsp").common_on_attach(client, bufnr)
+                local rt = require "rust-tools"
+                vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = bufnr })
+            end,
+            capabilities = require("lvim.lsp").common_capabilities(),
+            settings = {
+                ["rust-analyzer"] = {
+                    lens = {
+                        enable = true,
+                    },
+                    checkOnSave = {
+                        enable = true,
+                        --command = "clippy",
+                    },
+                },
+            },
+        },
+    }
+end)
+
+lvim.builtin.dap.on_config_done = function(dap)
+    dap.adapters.codelldb = codelldb_adapter
+    dap.configurations.rust = {
+        {
+            name = "Launch file",
+            type = "codelldb",
+            request = "launch",
+            program = function()
+                return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+            end,
+            cwd = "${workspaceFolder}",
+            stopOnEntry = false,
+        },
+    }
+end
