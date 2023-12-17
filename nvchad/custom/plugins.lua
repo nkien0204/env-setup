@@ -70,7 +70,7 @@ local plugins = {
       require "custom.configs.nvim-dap"
 
       -- read config from .vscode/launch.json
-      require("dap.ext.vscode").load_launchjs(nil, {})
+      require("dap.ext.vscode").load_launchjs(".nvim/launch.json", { codelldb = { "c", "cpp", "rust", "go" } })
     end,
   },
   {
@@ -135,6 +135,11 @@ local plugins = {
       "nvim-treesitter/nvim-treesitter", -- optional
       "nvim-tree/nvim-web-devicons", -- optional
     },
+  },
+  {
+    "mg979/vim-visual-multi",
+    branch = "master",
+    event = "VeryLazy",
   },
 }
 
