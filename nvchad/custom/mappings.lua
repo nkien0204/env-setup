@@ -17,7 +17,17 @@ M.disabled = {
     ["<leader>h"] = "",
     ["<leader>v"] = "",
     ["<leader>l"] = "",
+    ["<leader>c"] = "",
     ["<C-n>"] = "",
+  },
+}
+
+M.nvimtree = {
+  n = {
+    ["<leader>e"] = {
+      ":NvimTreeToggle<CR>",
+      "Nvimtree toggle",
+    },
   },
 }
 
@@ -42,6 +52,10 @@ M.lspsaga = {
       end,
       "document highlight",
     },
+    ["ga"] = {
+      ":Lspsaga code_action<CR>",
+      "Code action",
+    },
   },
 }
 
@@ -63,6 +77,12 @@ M.harpoon = {
     },
     ["<leader>he"] = {
       ":Telescope harpoon marks<CR>",
+      "toggle telescope menu",
+    },
+    ["<leader>ht"] = {
+      function()
+        require("harpoon.ui").toggle_quick_menu()
+      end,
       "toggle menu",
     },
   },
@@ -182,6 +202,10 @@ M.diffview = {
     ["<leader>gdr"] = {
       "<cmd>DiffviewRefresh<CR>",
       "Diff view refresh",
+    },
+    ["<leader>gdh"] = {
+      "<cmd>DiffviewFileHistory<CR>",
+      "Diff view file history",
     },
   },
 }

@@ -28,6 +28,9 @@ M.ui = {
       { "  Mappings", "Spc c h", "NvCheatsheet" },
     },
   },
+  statusline = {
+    theme = "vscode_colored",
+  },
 }
 M.mappings = require "custom.mappings"
 M.plugins = "custom.plugins"

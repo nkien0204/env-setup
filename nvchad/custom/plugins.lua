@@ -129,7 +129,7 @@ local plugins = {
     event = "VeryLazy",
     require("core.utils").load_mappings "lspsaga",
     config = function()
-      require("lspsaga").setup {}
+      require "custom.configs.lsp-saga"
     end,
     dependencies = {
       "nvim-treesitter/nvim-treesitter", -- optional
@@ -140,6 +140,25 @@ local plugins = {
     "mg979/vim-visual-multi",
     branch = "master",
     event = "VeryLazy",
+  },
+  {
+    "github/copilot.vim",
+    event = "VeryLazy",
+  },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    event = "VeryLazy",
+    branch = "canary",
+    dependencies = {
+      { "github/copilot.vim" },
+      { "nvim-lua/plenary.nvim" },
+    },
+    opts = {
+      debug = true, -- Enable debugging
+    },
+    keys = {
+      { "<leader>co", ":CopilotChat ", desc = "CopilotChat - Chat with Copilot" },
+    },
   },
 }
 
