@@ -15,6 +15,10 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.colorcolumn = "120"
 
+-- neovide
+vim.opt.guifont = "JetBrainsMono Nerd Font"
+vim.g.neovide_cursor_vfx_mode = "railgun"
+
 -- vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 --   callback = function()
 --     vim.lsp.buf.document_highlight()
@@ -22,7 +26,7 @@ vim.opt.colorcolumn = "120"
 -- })
 
 vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-  callback = function()
-    vim.lsp.buf.clear_references()
-  end,
+	callback = function()
+		vim.lsp.buf.clear_references()
+	end,
 })

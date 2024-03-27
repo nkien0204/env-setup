@@ -1,7 +1,7 @@
 vim.keymap.set("n", "p", '"0p', {})
 vim.keymap.set("n", "t", '""p', {})
 vim.keymap.set({ "n", "v" }, "gy", '"+y', {})
-vim.keymap.set("n", "<C-t>", ":ToggleTerm direction=float<CR>", {})
+vim.keymap.set("n", "<D-v>", '"+p', {})
 
 local M = {}
 
