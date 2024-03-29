@@ -158,6 +158,7 @@ local plugins = {
     },
     keys = {
       { "<leader>co", ":CopilotChat ", desc = "CopilotChat - Chat with Copilot" },
+      { "<leader>cl", ":CopilotChatToggle<CR>", desc = "Toggle Copilot Chatbox" },
     },
   },
 }
