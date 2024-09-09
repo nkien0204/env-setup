@@ -39,7 +39,7 @@ map("n", "<leader>xl", ":lua require('nvchad.tabufline').closeBufs_at_direction 
 map("n", "<leader>xr", ":lua require('nvchad.tabufline').closeBufs_at_direction ('right')<CR>")
 
 -- trouble
-map("n", "<leader>rx", "<cmd>TroubleToggle<CR>")
+map("n", "<leader>rx", "<cmd>Trouble diagnostics toggle<CR>")
 
 -- hop
 map("n", "<leader>q", "<cmd>HopWord<CR>")

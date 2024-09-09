@@ -9,6 +9,7 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     json = { "jq" },
+    cpp = { "clang-format" },
   },
 
   format_on_save = {

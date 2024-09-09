@@ -10,10 +10,13 @@ local servers = {
   "pyright",
   "gopls",
   "html",
-  "tsserver",
+  "ts_ls",
   "cssls",
   "yamlls",
   "angularls",
+  "prismals",
+  "taplo",
+  "clangd",
 }
 
 -- lsps with default config

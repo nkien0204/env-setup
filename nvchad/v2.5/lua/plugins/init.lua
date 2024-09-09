@@ -32,6 +32,7 @@ return {
         "javascript",
         "typescript",
         "markdown_inline",
+        "prisma",
       },
     },
   },
@@ -41,7 +42,7 @@ return {
     lazy = false,
     config = function()
       local wk = require "which-key"
-      wk.register(require "configs.whichkey")
+      wk.add(require "configs.whichkey")
     end,
   },
 
@@ -134,27 +135,27 @@ return {
     event = "VeryLazy",
   },
 
-  -- {
-  --   "github/copilot.vim",
-  --   event = "VeryLazy",
-  -- },
-  --
-  -- {
-  --   "CopilotC-Nvim/CopilotChat.nvim",
-  --   event = "VeryLazy",
-  --   branch = "canary",
-  --   dependencies = {
-  --     { "github/copilot.vim" },
-  --     { "nvim-lua/plenary.nvim" },
-  --   },
-  --   opts = {
-  --     debug = true, -- Enable debugging
-  --   },
-  --   keys = {
-  --     { "<leader>co", ":CopilotChat ", desc = "CopilotChat - Chat with Copilot" },
-  --     { "<leader>cl", ":CopilotChatToggle<CR>", desc = "Toggle Copilot Chatbox" },
-  --   },
-  -- },
+  {
+    "github/copilot.vim",
+    event = "VeryLazy",
+  },
+
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    event = "VeryLazy",
+    branch = "canary",
+    dependencies = {
+      { "github/copilot.vim" },
+      { "nvim-lua/plenary.nvim" },
+    },
+    opts = {
+      debug = true, -- Enable debugging
+    },
+    keys = {
+      { "<leader>co", ":CopilotChat ", desc = "CopilotChat - Chat with Copilot" },
+      { "<leader>cl", ":CopilotChatToggle<CR>", desc = "Toggle Copilot Chatbox" },
+    },
+  },
 
   {
     "nvim-tree/nvim-tree.lua",
@@ -167,4 +168,6 @@ return {
       require "configs.nvim-tree"
     end,
   },
+
+  { "echasnovski/mini.icons", version = false },
 }

@@ -1,31 +1,11 @@
 return {
-  ["<leader>"] = {
-    f = {
-      name = "Telescope",
-    },
-    r = {
-      name = "Trouble",
-    },
-    t = {
-      name = "Themes",
-    },
-    d = {
-      name = "Debugger",
-    },
-    g = {
-      name = "Git",
-    },
-    gd = {
-      name = "Diff view",
-    },
-    w = {
-      name = "Which key",
-    },
-    x = {
-      name = "tabufline",
-    },
-    h = {
-      name = "Harpoon",
-    },
-  },
+  { "<leader>d", group = "Debugger" },
+  { "<leader>f", group = "Telescope" },
+  { "<leader>g", group = "Git" },
+  { "<leader>gd", group = "Diff view" },
+  { "<leader>h", group = "Harpoon" },
+  { "<leader>r", group = "Trouble" },
+  { "<leader>t", group = "Themes" },
+  { "<leader>w", group = "Which key" },
+  { "<leader>x", group = "tabufline" },
 }
