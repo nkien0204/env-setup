@@ -18,6 +18,9 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
+      indent = {
+        enable = true,
+      },
       ensure_installed = {
         "c",
         "go",
@@ -170,4 +173,15 @@ return {
   },
 
   { "echasnovski/mini.icons", version = false },
+
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    lazy = false,
+    opts = {
+      open_mapping = [[<c-\>]],
+      insert_mappings = true,
+      terminal_mappings = true,
+    },
+  },
 }

@@ -60,3 +60,7 @@ map("n", "<leader>dc", ":lua require('dap').continue()<CR>")
 map("n", "<leader>du", ":lua require('dap').step_over()<CR>")
 map("n", "<leader>di", ":lua require('dap').step_into()<CR>")
 map("n", "<leader>dI", ":lua require('dap').step_out()<CR>")
+
+-- Disable mappings
+local nomap = vim.keymap.del
+nomap("n", "<leader>h")
