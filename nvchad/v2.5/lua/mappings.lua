@@ -9,8 +9,14 @@ map("i", "jk", "<ESC>")
 map("n", "p", '"0p', {})
 map("n", "t", '""p', {})
 map({ "n", "v" }, "gy", '"+y', {})
-map("n", "<D-v>", '"+p', {})
-
+map({ "n", "i" }, "<D-v>", function()
+  -- Get the clipboard content
+  local clipboard_content = vim.fn.getreg "+"
+  -- Remove any null characters from the clipboard content. From Lua 5.2, need to change \0 to %z
+  clipboard_content = clipboard_content:gsub("\0", "")
+  -- Paste the content into the buffer
+  vim.api.nvim_put({ clipboard_content }, "c", true, true)
+end, {})
 -- nvimtree
 map("n", "<leader>e", ":NvimTreeToggle<CR>")
 
