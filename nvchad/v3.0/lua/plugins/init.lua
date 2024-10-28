@@ -183,7 +183,6 @@ return {
       insert_mappings = true,
       terminal_mappings = true,
       on_open = function(term)
-        vim.cmd "setlocal paste"
         vim.api.nvim_buf_set_keymap(term.bufnr, "t", "<D-v>", [[<C-\><C-n>"+p]], { noremap = true, silent = true })
       end,
     },
